@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d194f2e5df.js" crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>l'importateur</title>
+</head>
+<body>
+    <header>
+        <div>
+            <i class="fas fa-ship"></i>
+            <h2>l'importateur</h2>
+        </div>
+    </header>
+    <section>
+       <!-- <div class="contVacio">
+            <h1>No tenes elementos en la lista!</h1>
+            <i class="far fa-frown" id="carita"></i>
+        </div>-->
+        <div class="contForm" id="formulario">
+            <div class="tituloForm">
+                <h3>Ingresa el producto</h3>
+            </div>
+            <div class="formInput">
+                <form id="formulario">
+                    <label for="destinoProducto">Que desea traer?</label>
+                    <input type="text" id="nombreProducto" placeholder="Nombre/Descripcion." >
+                    <label for="destinoProducto">Cuanto cuesta?</label>
+                    <input type="text" id="precioProducto" placeholder="Precio." >
+                    <label for="destinoProducto">Donde deseas enviarlo?</label>
+                    <select name="" id="destinoProducto" >
+                        <option>Argentina</option>
+                        <option>Bolivia</option>
+                        <option>Brasil</option>
+                        <option>Chile</option>
+                        <option>Paraguay</option>
+                        <option>Uruguay</option>
+                    </select> 
+                    <div class="botones">
+                        <button type="button" id="btnAdd" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                        <button type="button" id="btnBorrar" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                    </div>  
+                </form> 
+            </div>
+        </div>
+       <div id="productosCargados" class="productosCargados">
+        </div>
+        <!--<div class="divBoton">
+            <button type="button" class="btn btn-primary" id="btnCard"><i class="fas fa-plus"></i></button>
+        </div>-->
+    </section>
+    <script src="./js/main.js"></script>
+</body>
+</html>

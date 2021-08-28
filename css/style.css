@@ -1,0 +1,103 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    background: #f7cb15;
+    
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #333;
+    background: #fceca8;
+    height: calc(100vh - 70px);
+}
+.contVacio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#carita{
+    font-size: 100px;
+}
+.divBoton{
+    position: fixed;
+    bottom: 50px;
+
+}
+.contForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fceca8;
+    border: solid 3px #f7cb15;
+    border-radius: 5px;
+    box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
+    margin: 2vh;
+}
+.formInput form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2vh;
+}
+input{
+    margin: 1vh;
+}
+.tituloForm{
+    display: flex;
+    justify-content: center;
+    background: #f7cb15;
+    box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
+}
+.tituloForm h3{
+    margin: 2vh;
+}
+.divBoton{
+    display: flex;
+    justify-content: center;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    margin: 2vh;
+    background: #f7cb15;
+    border: solid 1px #f7cb15;
+    color: #333;
+    width: 10vh;
+    border-radius: 5px;
+    box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
+}
+.btn:hover{
+    background: #fceca8;
+    color: #333;
+    border: solid 1px #fceca8;
+}
+.btn:focus{
+
+    background: #fceca8;
+    color: #333;
+    border: solid 1px #fceca8;
+    box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
+}
+.item{
+    border: solid 3px #f7cb15;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
+    margin: 1vh;
+}
+.productosCargados{
+    display: flex;
+    flex-wrap: wrap;
+}
