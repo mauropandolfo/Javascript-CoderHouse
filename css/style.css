@@ -30,9 +30,10 @@ section{
 
 }
 .contForm{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
+    position: absolute;
     background: #fceca8;
     border: solid 3px #f7cb15;
     border-radius: 5px;
