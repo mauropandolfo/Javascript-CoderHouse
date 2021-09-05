@@ -42,6 +42,9 @@ function cargarProducto(e){
             listaDeProductos.push(productoActual);
             mostrarTodos(); 
             $("#formulario").toggle(100);
+            $(".contVacio").css({
+                "display":"none"
+                });
             document.getElementById("nombreProducto").value = '';
             document.getElementById("precioProducto").value = '';
         }
@@ -112,7 +115,7 @@ function mostrarTodos(){
         }
     }
 };
-//Funcion de eliminar elementos en HTML y en array;
+//Funcion de eliminar elementos en HTML y en array.
 function borrarTodos(){
     let borra = confirm("Desea borrar todos los productos de la lista?");
     if(borra){
@@ -128,18 +131,12 @@ function calcularPrecio(precio, impuesto, envio){
     let total = precio * impuesto + envio;
     return total;
 };
+//Funcion de mostrar tarjeta de carga de producto.
+$("#btnCard").click(() =>{
+    $("#formulario").toggle("fast");
+});
 //Codigo Principal.
 let listaDeProductos = [];
 let contenedor = document.getElementById("productosCargados");
 $("#btnBorrar").on('click', borrarTodos);
 $("#btnAdd").on('click', cargarProducto);
-
-
-
-$("#btnCard").click(() =>{
-    $("#formulario").toggle("fast");
-    $(".contVacio").css({
-        "display":"none",
-        });
-    }
-);
