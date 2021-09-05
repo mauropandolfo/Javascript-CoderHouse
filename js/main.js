@@ -117,13 +117,18 @@ function mostrarTodos(){
 };
 //Funcion de eliminar elementos en HTML y en array.
 function borrarTodos(){
-    let borra = confirm("Desea borrar todos los productos de la lista?");
-    if(borra){
-        $(".item").remove();
-        listaDeProductos.length = 0;
-        $(".contVacio").css({
-            "display":"flex"
-            });
+    if(listaDeProductos.length >= 1){
+        borra = confirm("Desea borrar todos los productos de la lista?");
+        if(borra){
+            $(".item").remove();
+            listaDeProductos.length = 0;
+            $(".contVacio").css({
+                "display":"flex"
+                });
+        }
+    }
+    else{
+        alert("Tu lista esta vacia!");
     }
 };
 //Funcion que calcula el precio final del producto.

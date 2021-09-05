@@ -1,3 +1,6 @@
+body{
+    font-family: 'Azeret Mono', monospace;
+}
 header{
     display: flex;
     justify-content: center;
@@ -10,9 +13,9 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: #333;
-    background: #fceca8;
+    background: rgb(250,220,95);
+    background: linear-gradient(180deg, rgba(250,220,95,0.8729866946778712) 36%, rgba(252,236,168,1) 100%);
     height: calc(100vh - 70px);
 }
 .contVacio{
