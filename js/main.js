@@ -77,7 +77,7 @@ function mostrarTodos(){
                                         </div>`; 
             break;
             case "Brasil":
-                $contenedor.innerHTML +=`<div class="item">
+                contenedor.innerHTML +=`<div class="item">
                                         <h3>${item.nombre}</h3>
                                         <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[2].impuestos,destinosDisponibles[2].envio)}</p>
                                         <p>Destino: ${item.destino}</p>
