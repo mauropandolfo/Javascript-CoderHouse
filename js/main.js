@@ -138,8 +138,16 @@ function calcularPrecio(precio, impuesto, envio){
 };
 //Funcion de mostrar tarjeta de carga de producto.
 $("#btnCard").click(() =>{
-    $("#formulario").toggle("fast");
+    $("#formulario").toggle("slow");
+    $( function(){
+        $("#formulario").draggable();
+    });
 });
+//funcion de cierre de de tarjeta.
+$("#btnCierre").click(() =>{
+    $("#formulario").toggle("slow");
+});
+
 //Codigo Principal.
 let listaDeProductos = [];
 let contenedor = document.getElementById("productosCargados");
