@@ -6,7 +6,7 @@ class Producto{
         this.destino = pDestino;
     }
 };
-const URLJSON = "../destinos.json"
+const URLJSON = "./destinos.json"
 let destinosDisponibles = [];
 $.getJSON(URLJSON, function(respuesta, estado){
     if(estado === "success"){
