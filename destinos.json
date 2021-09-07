@@ -1,0 +1,8 @@
+[
+    {"pais": "Argentina", "impuestos": 1.21, "envio": 3500, "demora": 35},
+    {"pais": "Bolivia", "impuestos": 1.20, "envio": 3000, "demora": 20},
+    {"pais": "Brasil", "impuestos": 1.17, "envio": 2600, "demora": 15},
+    {"pais": "Chile", "impuestos": 1.15, "envio": 3700, "demora": 40},
+    {"pais": "Paraguay", "impuestos": 1.21, "envio": 3000, "demora": 20},
+    {"pais": "Uruguay", "impuestos": 1.21, "envio": 3700, "demora": 40}
+]

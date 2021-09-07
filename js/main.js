@@ -6,14 +6,14 @@ class Producto{
         this.destino = pDestino;
     }
 };
-let destinosDisponibles = [
-    {pais: "Argentina", impuestos: 1.21, envio: 3500, demora: 35},
-    {pais: "Bolivia", impuestos: 1.20, envio: 3000, demora: 20},
-    {pais: "Brasil", impuestos: 1.17, envio: 2600, demora: 15},
-    {pais: "Chile", impuestos: 1.15, envio: 3700, demora: 40},
-    {pais: "Paraguay", impuestos: 1.21, envio: 3000, emora: 20},
-    {pais: "Uruguay", impuestos: 1.21, envio: 3700, emora: 40}
-];
+const URLJSON = "../destinos.json"
+let destinosDisponibles = [];
+$.getJSON(URLJSON, function(respuesta, estado){
+    if(estado === "success"){
+        let destinosObtenidos = respuesta;
+        destinosObtenidos.map( x => destinosDisponibles.push(x));
+    }
+});
 //Funcion de validacion de formularios.
 function validar(){
     let formularioNombre = document.getElementById("nombreProducto").value;
@@ -147,7 +147,20 @@ $("#btnCard").click(() =>{
 $("#btnCierre").click(() =>{
     $("#formulario").toggle("slow");
 });
-
+//boton de informacion.
+$("#btnAbout").click(()=>{
+    $(".about").toggle("slow");
+    $( function(){
+        $(".about").draggable();
+    });
+    $(".about").css({
+        "display":"flex"
+    });
+});
+//boton cierre de informacion
+$("#cierreAbout").click(() =>{
+    $(".about").toggle("slow");
+});
 //Codigo Principal.
 let listaDeProductos = [];
 let contenedor = document.getElementById("productosCargados");

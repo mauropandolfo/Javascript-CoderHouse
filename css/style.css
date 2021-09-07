@@ -105,4 +105,13 @@ input{
     display: flex;
     flex-wrap: wrap;
 }
-
+.about{
+    display: none;
+    position: absolute;
+    text-align: center;
+    background: #fceca8;
+    border: solid 3px #f7cb15;
+    border-radius: 5px;
+    box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
+    margin: 2vh;
+}
