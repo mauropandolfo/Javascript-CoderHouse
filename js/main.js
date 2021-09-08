@@ -21,7 +21,7 @@ $("document").ready(function(){
             datosOk = true;
         }
     };
-//Funcion de carga de productos.
+    //Funcion de carga de productos.
     function cargarProducto(e){
         e.preventDefault();
         validar();
@@ -103,7 +103,10 @@ $("document").ready(function(){
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado: ${destinosDisponibles[5].demora} dias.</p>
                                             <button type="button" id="borrarLocal" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
-                                            </div>`;                   
+                                            </div>`;
+                    $("#cierreAbout").click(() =>{
+                        $(".about").remove();
+                    });                   
                 break;
             }
         }
@@ -131,34 +134,77 @@ $("document").ready(function(){
     };
     //Funcion de mostrar tarjeta de carga de producto.
     $("#btnCard").click(() =>{
+        $("body").prepend(
+            ` <div class="contForm" id="formulario">
+                <div class="tituloForm">
+                    <h3>Ingresa el producto</h3>
+                </div>
+                <div class="formInput">
+                    <form id="formulario">
+                        <label for="destinoProducto">Que desea traer?</label>
+                        <input type="text" id="nombreProducto" placeholder="Nombre/Descripcion." >
+                        <label for="destinoProducto">Cuanto cuesta?</label>
+                        <input type="text" id="precioProducto" placeholder="Precio." >
+                        <label for="destinoProducto">Donde deseas enviarlo?</label>
+                        <select name="" id="destinoProducto" >
+                            <option>Argentina</option>
+                            <option>Bolivia</option>
+                            <option>Brasil</option>
+                            <option>Chile</option>
+                            <option>Paraguay</option>
+                            <option>Uruguay</option>
+                        </select> 
+                        <div class="botones">
+                            <button type="button" id="btnAdd" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                            <button type="button" id="btnCierre" class="btn btn-primary"><i class="fas fa-times"></i></button>
+                        </div>  
+                    </form> 
+                </div>
+            </div>`
+        );
         $("#formulario").toggle("slow");
         $( function(){
             $("#formulario").draggable();
         });
-    });
-    //funcion de cierre de de tarjeta.
-    $("#btnCierre").click(() =>{
-        $("#formulario").toggle("slow");
+        $("#btnAdd").on('click', cargarProducto);
+        $("#btnCierre").click(() =>{
+            $("#formulario").remove();
+            $("#fomulario").toggle("slow");
+        });
     });
     //boton de informacion.
     $("#btnAbout").click(()=>{
+        $("body").prepend(
+            `<div class="about">
+                <p>
+                    <strong>l'importateur</strong> es una plataforma ficticia donde vas a poder cotizar el envio de tus productos
+                    del extranjero a tu pais, nuestro servicio se encuentra disponible en Argentina, Bolivia, Brasil, Chile, Paraguay y
+                    Uruguay.
+                    <br>
+                    El precio mostrado en pantalla incluye costos del producto, envio e impuestos de acuerdo al destino seleccionado.
+                    <br>
+                    Para agregar productos a la lista solo presiona el boton <i class="fas fa-plus"></i>, completa el formulario y listo,
+                    si queres eliminar algun elemento podes precionar el boton <i class="fas fa-trash"></i>, dentro del producto para 
+                    eliminarlo o el que se encuentra al pie de la pagina para vaciar la lista.
+                    <br>
+                    <button type="button" id="cierreAbout" class="btn btn-primary"><i class="fas fa-times"></i></button>
+                </p>
+            </div>`
+        );
         $(".about").toggle("slow");
         $( function(){
             $(".about").draggable();
         });
-        $(".about").css({
-            "display":"flex"
+        $("#cierreAbout").click(() =>{
+            $(".about").remove();
         });
     });
-    //boton cierre de informacion
-    $("#cierreAbout").click(() =>{
-        $(".about").toggle("slow");
-    });
+
+    
     //Codigo Principal.
     let listaDeProductos = [];
     let contenedor = document.getElementById("productosCargados");
     $("#btnBorrar").on('click', borrarTodos);
-    $("#btnAdd").on('click', cargarProducto);
     //Lectura de datos desde formato JSON.
     const URLJSON = "../destinos.json"
     let destinosDisponibles = [];
