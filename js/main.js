@@ -1,4 +1,4 @@
-$("document").ready(function(){
+$(document).ready(function(){
     //Constructor de objetos.
     class Producto{
         constructor(pNombre, pPrecio, pDestino){
@@ -103,10 +103,7 @@ $("document").ready(function(){
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado: ${destinosDisponibles[5].demora} dias.</p>
                                             <button type="button" id="borrarLocal" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
-                                            </div>`;
-                    $("#cierreAbout").click(() =>{
-                        $(".about").remove();
-                    });                   
+                                            </div>`;                 
                 break;
             }
         }
