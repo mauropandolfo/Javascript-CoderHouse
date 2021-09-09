@@ -7,6 +7,9 @@ $(document).ready(function(){
             this.destino = pDestino;
         }
     }
+    //Array que contiene los objetos
+    let listaDeProductos = [];
+    let contenedor = document.getElementById("productosCargados");
     //Funcion de validacion de formularios.
     function validar(){
         let formularioNombre = document.getElementById("nombreProducto").value;
@@ -52,58 +55,82 @@ $(document).ready(function(){
         for(let item of listaDeProductos){
             switch(item.destino){
                 case "Argentina":
-                    contenedor.innerHTML +=`<div class="item">
+                    contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[0].impuestos,destinosDisponibles[0].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado: ${destinosDisponibles[0].demora} dias.</p>
-                                            <button type="button" id="borrarLocal" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
+                                            $(`#borrar${item.nombre}`).click(() =>{
+                                                $(`#item${item.nombre}`).toggle("slow");
+                                                listaDeProductos.splice(item);
+                                            })
                 break;
                 case "Bolivia":
-                    contenedor.innerHTML +=`<div class="item">
+                    contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[1].impuestos,destinosDisponibles[1].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado: ${destinosDisponibles[1].demora} dias.</p>
-                                            <button type="button" id="borrarLocal" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
-                                            </div>`; 
+                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            </div>`;
+                                            $(`#borrar${item.nombre}`).click(() =>{
+                                                $(`#item${item.nombre}`).toggle("slow");
+                                                listaDeProductos.splice(item);
+                                            });
                 break;
                 case "Brasil":
-                    contenedor.innerHTML +=`<div class="item">
+                    contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[2].impuestos,destinosDisponibles[2].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado: ${destinosDisponibles[2].demora} dias.</p>
-                                            <button type="button" id="borrarLocal" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
-                                            </div>`; 
+                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            </div>`;
+                                            $(`#borrar${item.nombre}`).click(() =>{
+                                                $(`#item${item.nombre}`).toggle("slow");
+                                                listaDeProductos.splice(item);
+                                            });
                 break;
                 case "Chile":
-                    contenedor.innerHTML +=`<div class="item">
+                    contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[3].impuestos,destinosDisponibles[3].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado: ${destinosDisponibles[3].demora} dias.</p>
-                                            <button type="button" id="borrarLocal" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
-                                            </div>`;                        
+                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            </div>`;  
+                                            $(`#borrar${item.nombre}`).click(() =>{
+                                                $(`#item${item.nombre}`).toggle("slow");
+                                                listaDeProductos.splice(item);
+                                            });                      
                 break;  
                 case "Paraguay":
-                    contenedor.innerHTML +=`<div class="item">
+                    contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[4].impuestos,destinosDisponibles[4].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado: ${destinosDisponibles[4].demora} dias.</p>
-                                            <button type="button" id="borrarLocal" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
-                                            </div>`; 
+                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            </div>`;
+                                            $(`#borrar${item.nombre}`).click(() =>{
+                                                $(`#item${item.nombre}`).toggle("slow");
+                                                listaDeProductos.splice(item);
+                                            }); 
                 break;
                 case "Uruguay":
-                    contenedor.innerHTML +=`<div class="item">
+                    contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[5].impuestos,destinosDisponibles[5].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado: ${destinosDisponibles[5].demora} dias.</p>
-                                            <button type="button" id="borrarLocal" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
-                                            </div>`;                 
+                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            </div>`;
+                                            $(`#borrar${item.nombre}`).click(() =>{
+                                                $(`#item${item.nombre}`).toggle("slow");
+                                                listaDeProductos.splice(item);
+                                            })                   
                 break;
             }
         }
@@ -129,79 +156,6 @@ $(document).ready(function(){
         let total = precio * impuesto + envio;
         return total;
     };
-    //Funcion de mostrar tarjeta de carga de producto.
-    $("#btnCard").click(() =>{
-        $("body").prepend(
-            ` <div class="contForm" id="formulario">
-                <div class="tituloForm">
-                    <h3>Ingresa el producto</h3>
-                </div>
-                <div class="formInput">
-                    <form id="formulario">
-                        <label for="destinoProducto">Que desea traer?</label>
-                        <input type="text" id="nombreProducto" placeholder="Nombre/Descripcion." >
-                        <label for="destinoProducto">Cuanto cuesta?</label>
-                        <input type="text" id="precioProducto" placeholder="Precio." >
-                        <label for="destinoProducto">Donde deseas enviarlo?</label>
-                        <select name="" id="destinoProducto" >
-                            <option>Argentina</option>
-                            <option>Bolivia</option>
-                            <option>Brasil</option>
-                            <option>Chile</option>
-                            <option>Paraguay</option>
-                            <option>Uruguay</option>
-                        </select> 
-                        <div class="botones">
-                            <button type="button" id="btnAdd" class="btn btn-primary"><i class="fas fa-plus"></i></button>
-                            <button type="button" id="btnCierre" class="btn btn-primary"><i class="fas fa-times"></i></button>
-                        </div>  
-                    </form> 
-                </div>
-            </div>`
-        );
-        $("#formulario").toggle("slow");
-        $( function(){
-            $("#formulario").draggable();
-        });
-        $("#btnAdd").on('click', cargarProducto);
-        $("#btnCierre").click(() =>{
-            $("#formulario").remove();
-            $("#fomulario").toggle("slow");
-        });
-    });
-    //boton de informacion.
-    $("#btnAbout").click(()=>{
-        $("body").prepend(
-            `<div class="about">
-                <p>
-                    <strong>l'importateur</strong> es una plataforma ficticia donde vas a poder cotizar el envio de tus productos
-                    del extranjero a tu pais, nuestro servicio se encuentra disponible en Argentina, Bolivia, Brasil, Chile, Paraguay y
-                    Uruguay.
-                    <br>
-                    El precio mostrado en pantalla incluye costos del producto, envio e impuestos de acuerdo al destino seleccionado.
-                    <br>
-                    Para agregar productos a la lista solo presiona el boton <i class="fas fa-plus"></i>, completa el formulario y listo,
-                    si queres eliminar algun elemento podes precionar el boton <i class="fas fa-trash"></i>, dentro del producto para 
-                    eliminarlo o el que se encuentra al pie de la pagina para vaciar la lista.
-                    <br>
-                    <button type="button" id="cierreAbout" class="btn btn-primary"><i class="fas fa-times"></i></button>
-                </p>
-            </div>`
-        );
-        $(".about").toggle("slow");
-        $( function(){
-            $(".about").draggable();
-        });
-        $("#cierreAbout").click(() =>{
-            $(".about").remove();
-        });
-    });
-
-    
-    //Codigo Principal.
-    let listaDeProductos = [];
-    let contenedor = document.getElementById("productosCargados");
-    $("#btnBorrar").on('click', borrarTodos);
     //Lectura de datos desde formato JSON.
     const URLJSON = "../destinos.json"
     let destinosDisponibles = [];
@@ -211,4 +165,35 @@ $(document).ready(function(){
             destinosObtenidos.map( x => destinosDisponibles.push(x));
         }
     });
+
+    // BOTONES///
+    //carga de producto.
+    $("#btnCard").click(() =>{
+        $("#formulario").toggle("slow");
+        $( function(){
+            $("#formulario").draggable();
+        });
+    });
+    //cierre de de tarjeta.
+    $("#btnCierre").click(() =>{
+        $("#formulario").toggle("slow");
+    });
+    //informacion.
+    $("#btnAbout").click(()=>{
+        $(".about").toggle("slow");
+        $( function(){
+            $(".about").draggable();
+        });
+        $(".about").css({
+            "display":"flex"
+        });
+    });
+    //cierre de informacion
+    $("#cierreAbout").click(() =>{
+        $(".about").toggle("slow");
+    });
+    //Borrar toda la lista.
+    $("#btnBorrar").on('click', borrarTodos);
+    //cargar y renderizar producto
+    $("#btnAdd").on('click', cargarProducto);
 });

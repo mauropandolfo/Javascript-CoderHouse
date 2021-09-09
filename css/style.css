@@ -6,7 +6,7 @@ header{
     justify-content: center;
     align-items: center;
     color: #333;
-    background: #f7cb15;
+    background: #7bdff2;
     
 }
 section{
@@ -14,8 +14,8 @@ section{
     justify-content: center;
     align-items: center;
     color: #333;
-    background: rgb(250,220,95);
-    background: linear-gradient(180deg, rgba(250,220,95,0.8729866946778712) 36%, rgba(252,236,168,1) 100%);
+    background: rgb(151,235,241);
+    background: linear-gradient(180deg, rgba(151,235,241,1) 0%, rgba(178,247,239,1) 50%, rgba(239,247,246,1) 100%);
     height: calc(100vh - 70px);
 }
 .contVacio{
@@ -37,8 +37,9 @@ section{
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    background: #fceca8;
-    border: solid 3px #f7cb15;
+    background: rgb(151,235,241);
+    background: linear-gradient(180deg, rgba(151,235,241,1) 0%, rgba(178,247,239,1) 50%, rgba(239,247,246,1) 100%);
+    border: solid 3px #97ebf1;
     border-radius: 5px;
     box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
     margin: 2vh;
@@ -55,7 +56,7 @@ input{
 .tituloForm{
     display: flex;
     justify-content: center;
-    background: #f7cb15;
+    background: #97ebf1;
     box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
 }
 .tituloForm h3{
@@ -72,27 +73,29 @@ input{
 }
 .btn{
     margin: 2vh;
-    background: #f7cb15;
-    border: solid 1px #f7cb15;
+    background: rgb(151,235,241);
+    border: solid 1px #97ebf1;
     color: #333;
     width: 10vh;
     border-radius: 5px;
     box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
 }
 .btn:hover{
-    background: #fceca8;
+    background: rgb(151,235,241);
+    background: linear-gradient(180deg, rgba(151,235,241,1) 0%, rgba(178,247,239,1) 50%, rgba(239,247,246,1) 100%);
     color: #333;
-    border: solid 1px #fceca8;
+    border: solid 1px #97ebf1;
 }
 .btn:focus{
 
-    background: #fceca8;
+    background: rgb(151,235,241);
+    background: linear-gradient(180deg, rgba(151,235,241,1) 0%, rgba(178,247,239,1) 50%, rgba(239,247,246,1) 100%);
     color: #333;
-    border: solid 1px #fceca8;
+    border: solid 1px #97ebf1;
     box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
 }
 .item{
-    border: solid 3px #f7cb15;
+    border: solid 3px #97ebf1;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -109,8 +112,9 @@ input{
     display: none;
     position: absolute;
     text-align: center;
-    background: #fceca8;
-    border: solid 3px #f7cb15;
+    background: rgb(151,235,241);
+    background: linear-gradient(180deg, rgba(151,235,241,1) 0%, rgba(178,247,239,1) 50%, rgba(239,247,246,1) 100%);
+    border: solid 3px #97ebf1;
     border-radius: 5px;
     box-shadow: 5px 0 10px rgb(0 0 0 / 60%); 
     margin: 2vh;
