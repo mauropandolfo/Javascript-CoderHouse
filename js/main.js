@@ -59,7 +59,7 @@ $(document).ready(function(){
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[0].impuestos,destinosDisponibles[0].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
-                                            <p>Tiempo estimado: ${destinosDisponibles[0].demora} dias.</p>
+                                            <p>Tiempo estimado de entrega: ${destinosDisponibles[0].demora} dias.</p>
                                             <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
                                             $(`#borrar${item.nombre}`).click(() =>{
@@ -72,7 +72,7 @@ $(document).ready(function(){
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[1].impuestos,destinosDisponibles[1].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
-                                            <p>Tiempo estimado: ${destinosDisponibles[1].demora} dias.</p>
+                                            <p>Tiempo estimado de entrega: ${destinosDisponibles[1].demora} dias.</p>
                                             <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
                                             $(`#borrar${item.nombre}`).click(() =>{
@@ -85,7 +85,7 @@ $(document).ready(function(){
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[2].impuestos,destinosDisponibles[2].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
-                                            <p>Tiempo estimado: ${destinosDisponibles[2].demora} dias.</p>
+                                            <p>Tiempo estimado de entrega: ${destinosDisponibles[2].demora} dias.</p>
                                             <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
                                             $(`#borrar${item.nombre}`).click(() =>{
@@ -98,7 +98,7 @@ $(document).ready(function(){
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[3].impuestos,destinosDisponibles[3].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
-                                            <p>Tiempo estimado: ${destinosDisponibles[3].demora} dias.</p>
+                                            <p>Tiempo estimado de entrega: ${destinosDisponibles[3].demora} dias.</p>
                                             <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
                                             </div>`;  
                                             $(`#borrar${item.nombre}`).click(() =>{
@@ -111,7 +111,7 @@ $(document).ready(function(){
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[4].impuestos,destinosDisponibles[4].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
-                                            <p>Tiempo estimado: ${destinosDisponibles[4].demora} dias.</p>
+                                            <p>Tiempo estimadode entrega: ${destinosDisponibles[4].demora} dias.</p>
                                             <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
                                             $(`#borrar${item.nombre}`).click(() =>{
@@ -124,7 +124,7 @@ $(document).ready(function(){
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[5].impuestos,destinosDisponibles[5].envio)}</p>
                                             <p>Destino: ${item.destino}</p>
-                                            <p>Tiempo estimado: ${destinosDisponibles[5].demora} dias.</p>
+                                            <p>Tiempo estimado de entrega: ${destinosDisponibles[5].demora} dias.</p>
                                             <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
                                             $(`#borrar${item.nombre}`).click(() =>{
@@ -156,10 +156,30 @@ $(document).ready(function(){
         let total = precio * impuesto + envio;
         return total;
     };
+    //funcion de confirmacion de compra
+    function finalizarCompra(){
+        if(listaDeProductos.length >= 1){
+            let compra = confirm("Desea finalizar su compra?")
+            if(compra){
+                listaDeProductos.length = 0;
+                $(".item").remove();
+                $(".contVacio").css({
+                    "display":"flex"
+                });
+                $(".final").toggle("slow");
+                $("#cierreFinal").click(()=>{
+                    $(".final").toggle();
+                });
+            }
+        }
+        else{
+            alert("Tu carrito esta vacio, agrega productos para poder comprar!")
+        }
+    }   
     //Lectura de datos desde formato JSON.
-    const URLJSON = "../destinos.json"
+    const URLJSON = "https://mauropandolfo.github.io/test/destinos.json"
     let destinosDisponibles = [];
-    $.getJSON(URLJSON, function(respuesta, estado){
+    $.get(URLJSON, function(respuesta, estado){
         if(estado === "success"){
             let destinosObtenidos = respuesta;
             destinosObtenidos.map( x => destinosDisponibles.push(x));
@@ -192,6 +212,8 @@ $(document).ready(function(){
     $("#cierreAbout").click(() =>{
         $(".about").toggle("slow");
     });
+    //final de la compra
+     $("#btnCompra").on('click', finalizarCompra);
     //Borrar toda la lista.
     $("#btnBorrar").on('click', borrarTodos);
     //cargar y renderizar producto
