@@ -43,94 +43,94 @@ $(document).ready(function(){
                 });
                 document.getElementById("nombreProducto").value = '';
                 document.getElementById("precioProducto").value = '';
+                console.log(listaDeProductos);
             }
             else{
                 alert("No se agregara ningun producto")
             }
+
         }
     };
     //Funcion de renderizado.
     function mostrarTodos(){
         contenedor.innerHTML = '';
         for(let item of listaDeProductos){
+            //borrar items de a uno.
+            function borrarUno(){
+                $(`.borrar${item.nombre}`).click(() =>{
+                    $(`#item${item.nombre}`).remove();
+                    let posicion = listaDeProductos.indexOf(item);
+                    listaDeProductos.splice(posicion, 1)
+                    comprobarVacio()
+                });
+            }
             switch(item.destino){
                 case "Argentina":
                     contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[0].impuestos,destinosDisponibles[0].envio)}</p>
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg" alt="bandera" width="80px" height="50px">
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado de entrega: ${destinosDisponibles[0].demora} dias.</p>
-                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            <button type="button" class="btn btn-primary borrar${item.nombre}"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
-                                            $(`#borrar${item.nombre}`).click(() =>{
-                                                $(`#item${item.nombre}`).toggle("slow");
-                                                listaDeProductos.splice(item);
-                                            })
+                                            borrarUno()
+                                            
                 break;
                 case "Bolivia":
                     contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[1].impuestos,destinosDisponibles[1].envio)}</p>
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/1200px-Flag_of_Bolivia.svg.png" alt="bandera" width="80px" height="50px">
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado de entrega: ${destinosDisponibles[1].demora} dias.</p>
-                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            <button type="button" class="btn btn-primary borrar${item.nombre}"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
-                                            $(`#borrar${item.nombre}`).click(() =>{
-                                                $(`#item${item.nombre}`).toggle("slow");
-                                                listaDeProductos.splice(item);
-                                            });
+                                            borrarUno()
                 break;
                 case "Brasil":
                     contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[2].impuestos,destinosDisponibles[2].envio)}</p>
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1200px-Flag_of_Brazil.svg.png" alt="bandera" width="80px" height="50px">
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado de entrega: ${destinosDisponibles[2].demora} dias.</p>
-                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            <button type="button" class="btn btn-primary borrar${item.nombre}"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
-                                            $(`#borrar${item.nombre}`).click(() =>{
-                                                $(`#item${item.nombre}`).toggle("slow");
-                                                listaDeProductos.splice(item);
-                                            });
+                                            borrarUno()
                 break;
                 case "Chile":
                     contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[3].impuestos,destinosDisponibles[3].envio)}</p>
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg" alt="bandera" width="80px" height="50px">
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado de entrega: ${destinosDisponibles[3].demora} dias.</p>
-                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            <button type="button" class="btn btn-primary borrar${item.nombre}"><i class="fas fa-trash"></i></i></button>
                                             </div>`;  
-                                            $(`#borrar${item.nombre}`).click(() =>{
-                                                $(`#item${item.nombre}`).toggle("slow");
-                                                listaDeProductos.splice(item);
-                                            });                      
+                                            borrarUno()                    
                 break;  
                 case "Paraguay":
                     contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[4].impuestos,destinosDisponibles[4].envio)}</p>
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/1200px-Flag_of_Paraguay.svg.png" alt="bandera" width="80px" height="50px">
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimadode entrega: ${destinosDisponibles[4].demora} dias.</p>
-                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            <button type="button" class="btn btn-primary borrar${item.nombre}"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
-                                            $(`#borrar${item.nombre}`).click(() =>{
-                                                $(`#item${item.nombre}`).toggle("slow");
-                                                listaDeProductos.splice(item);
-                                            }); 
+                                            borrarUno()
                 break;
                 case "Uruguay":
                     contenedor.innerHTML +=`<div class="item" id="item${item.nombre}">
                                             <h3>${item.nombre}</h3>
                                             <p>Precio: $ ${calcularPrecio(item.precio,destinosDisponibles[5].impuestos,destinosDisponibles[5].envio)}</p>
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/1200px-Flag_of_Uruguay.svg.png" alt="bandera" width="80px" height="50px">
                                             <p>Destino: ${item.destino}</p>
                                             <p>Tiempo estimado de entrega: ${destinosDisponibles[5].demora} dias.</p>
-                                            <button type="button" id="borrar${item.nombre}" class="btn btn-primary"><i class="fas fa-trash"></i></i></button>
+                                            <button type="button" class="btn btn-primary borrar${item.nombre}"><i class="fas fa-trash"></i></i></button>
                                             </div>`;
-                                            $(`#borrar${item.nombre}`).click(() =>{
-                                                $(`#item${item.nombre}`).toggle("slow");
-                                                listaDeProductos.splice(item);
-                                            })                   
+                                            borrarUno()                  
                 break;
             }
         }
@@ -185,7 +185,19 @@ $(document).ready(function(){
             destinosObtenidos.map( x => destinosDisponibles.push(x));
         }
     });
-
+    //controla que se muestre el mensaje en pantalla de carrito vacio.
+    function comprobarVacio(){
+        if(listaDeProductos.length < 1){
+            $(".contVacio").css({
+                "display":"flex"
+            });
+        }
+        else{
+            $(".contVacio").css({
+                "display":"none"
+            });
+        }
+    }
     // BOTONES///
     //carga de producto.
     $("#btnCard").click(() =>{
@@ -213,7 +225,7 @@ $(document).ready(function(){
         $(".about").toggle("slow");
     });
     //final de la compra
-     $("#btnCompra").on('click', finalizarCompra);
+    $("#btnCompra").on('click', finalizarCompra);
     //Borrar toda la lista.
     $("#btnBorrar").on('click', borrarTodos);
     //cargar y renderizar producto
